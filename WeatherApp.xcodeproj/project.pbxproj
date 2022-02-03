@@ -99,6 +99,8 @@
 		F49F900027ABE1FA005BF483 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F49F903527ABE28E005BF483 /* CitySelection */,
+				F49F903127ABE265005BF483 /* Home */,
 				F49F900127ABE1FA005BF483 /* AppDelegate.swift */,
 				F49F900327ABE1FA005BF483 /* SceneDelegate.swift */,
 				F49F900527ABE1FA005BF483 /* ViewController.swift */,
@@ -125,6 +127,68 @@
 				F49F902427ABE1FB005BF483 /* WeatherAppUITestsLaunchTests.swift */,
 			);
 			path = WeatherAppUITests;
+			sourceTree = "<group>";
+		};
+		F49F903127ABE265005BF483 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				F49F903227ABE26B005BF483 /* Model */,
+				F49F903327ABE275005BF483 /* View */,
+				F49F903427ABE282005BF483 /* ViewModel */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		F49F903227ABE26B005BF483 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F49F903327ABE275005BF483 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F49F903427ABE282005BF483 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F49F903527ABE28E005BF483 /* CitySelection */ = {
+			isa = PBXGroup;
+			children = (
+				F49F903727ABE29F005BF483 /* View */,
+				F49F903627ABE298005BF483 /* Model */,
+				F49F903827ABE2A4005BF483 /* ViewModel */,
+			);
+			path = CitySelection;
+			sourceTree = "<group>";
+		};
+		F49F903627ABE298005BF483 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F49F903727ABE29F005BF483 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F49F903827ABE2A4005BF483 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -444,8 +508,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,8 +537,10 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
