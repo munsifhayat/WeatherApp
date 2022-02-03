@@ -26,8 +26,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet var imWeatherCondition: UIImageView!
     
     // Properties
-    
     var selectedCity : String = "London"
+    var defaultWOID : String = "44418"
 
     
     lazy var viewModel = {
@@ -41,14 +41,13 @@ class WeatherViewController: UIViewController {
     }
     
     func initViewModel() {
-        viewModel.getWeather(woid: "44418")
+        viewModel.getWeather(woid: defaultWOID)
     }
     
     // Update UI with Data
     
     private func updateUI (weather: WeatherDetailsViewModel) {
         
-//        lbCityName.text = selectedCity
         lbWeatherCondition.text = weather.weather_state_name
         lbTemp.text = String(weather.the_temp)
         lbMixMaxTemp.text = String(weather.min_temp) + "/" + String(weather.max_temp)
@@ -56,6 +55,10 @@ class WeatherViewController: UIViewController {
         lbAirPressure.text = String(weather.air_pressure)
         lbHumidity.text = String(weather.humidity) + "%"
         lbWindSpeed.text = String(weather.wind_speed)
+
+        if let weatherConditionIconURL = URL(string:Constants.imageBaseURL + weather.weather_state_abbr + ".png"){            
+            imWeatherCondition.load(url: weatherConditionIconURL)
+        }
             
     }
     
@@ -85,6 +88,22 @@ extension WeatherViewController: WeatherViewModelDelegate {
     
     func loadData(weather: WeatherDetailsViewModel) {
         updateUI(weather: weather)
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            } else {
+                print("Nothing")
+            }
+        }
     }
 }
 
