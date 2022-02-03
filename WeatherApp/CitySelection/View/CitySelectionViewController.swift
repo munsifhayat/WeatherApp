@@ -7,11 +7,19 @@
 
 import UIKit
 
+protocol CitySelectionDelegate : AnyObject {
+    
+    func selectedCity(_ city: CityCellViewModel)
+}
+
 class CitySelectionViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var weatherDelegate: WeatherViewDelegate?
+//    var weatherDelegate: WeatherViewDelegate?
+    
+    weak var delegate: CitySelectionDelegate?
+
     
     lazy var viewModel = {
         CitiesViewModel()
@@ -43,9 +51,9 @@ class CitySelectionViewController: UIViewController {
         }
     }
     
-    func presetData(delegate: WeatherViewDelegate){
-        self.weatherDelegate = delegate
-    }
+//    func presetData(delegate: WeatherViewDelegate){
+//        self.weatherDelegate = delegate
+//    }
     
 }
 
@@ -75,9 +83,8 @@ extension CitySelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
-        print(cellVM.woeid)
-        print(cellVM.cityName)
-        self.weatherDelegate?.cityChanged(city: cellVM)
+//        self.weatherDelegate?.cityChanged(city: cellVM)
+        self.delegate?.selectedCity(cellVM)
         self.navigationController?.popViewController(animated: true)
     }
 }
