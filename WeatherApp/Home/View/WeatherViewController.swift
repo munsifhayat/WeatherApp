@@ -23,6 +23,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet var lbHumidity: UILabel!
     @IBOutlet var lbWindSpeed: UILabel!
     
+    @IBOutlet var loaderView: UIActivityIndicatorView!
+
+    
     
     /// Image View
     @IBOutlet var imWeatherCondition: UIImageView!
@@ -44,17 +47,21 @@ class WeatherViewController: UIViewController {
         initViewModel()
     }
     
+    
+    
     func initViewModel() {
+        loaderView.startAnimating()
         viewModel.getWeather(woid: defaultWOID)
     }
     
     private func updateUI (weather: WeatherDetailsViewModel) {
         
+        loaderView.stopAnimating()
+        
         let tomorrowTemp = Int (weather.the_temp.rounded())
         let tommorrowMin = Int (weather.min_temp.rounded())
         let tommorrowMax = Int (weather.max_temp.rounded())
 
-        
         lbWeatherCondition.text = weather.weather_state_name
         lbTemp.text = String(tomorrowTemp) +  "°C"
         lbMixMaxTemp.text = String(tommorrowMin) + "°C" + " / " + String(tommorrowMax) + "°C"
@@ -95,21 +102,5 @@ extension WeatherViewController: WeatherViewModelDelegate {
     
     func loadData(weather: WeatherDetailsViewModel) {
         updateUI(weather: weather)
-    }
-}
-
-extension UIImageView {
-    func load(url: URL) {
-        DispatchQueue.global().async { [weak self] in
-            if let data = try? Data(contentsOf: url) {
-                if let image = UIImage(data: data) {
-                    DispatchQueue.main.async {
-                        self?.image = image
-                    }
-                }
-            } else {
-                print("Nothing")
-            }
-        }
     }
 }

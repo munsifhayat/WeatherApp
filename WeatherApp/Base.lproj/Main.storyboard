@@ -185,6 +185,13 @@
                                     <action selector="actChangeCity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8MN-su-aue"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="nfm-eO-ap4">
+                                <rect key="frame" x="157" y="398" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="p7S-LK-az8"/>
+                                    <constraint firstAttribute="width" constant="100" id="z7h-1X-E1b"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.21960784310000001" green="0.71372549019999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -196,6 +203,7 @@
                             <constraint firstItem="GOE-2l-vMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8yj-9y-4Vk"/>
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.189732" constant="-20" id="9dh-uy-cyI"/>
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bvt-BU-N5U"/>
+                            <constraint firstItem="nfm-eO-ap4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CJx-Vw-dCM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nr8-Xg-eEo" secondAttribute="trailing" constant="20" id="CPs-AT-uog"/>
                             <constraint firstItem="nr8-Xg-eEo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.03125" id="FcY-9d-iRC"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="GOE-2l-vMZ" secondAttribute="trailing" constant="20" id="KrF-l7-JOd"/>
@@ -209,6 +217,7 @@
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.410628" constant="-20" id="beZ-ng-ehw"/>
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dD4-8M-pv0"/>
                             <constraint firstItem="EK9-3g-7EN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.104353" id="dtc-Dn-dky"/>
+                            <constraint firstItem="nfm-eO-ap4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eng-7h-UWL"/>
                             <constraint firstItem="GOE-2l-vMZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.03125" id="k7h-SA-T1q"/>
                             <constraint firstItem="Itw-bO-DhA" firstAttribute="top" secondItem="GD4-q8-4HC" secondAttribute="bottom" constant="16" id="nx4-ds-tis"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fKP-fe-dJC" secondAttribute="trailing" constant="20" id="nzh-n6-vhq"/>
@@ -235,6 +244,7 @@
                         <outlet property="lbWeatherDate" destination="Itw-bO-DhA" id="DDA-Rg-NIE"/>
                         <outlet property="lbWeatherForecastDate" destination="Itw-bO-DhA" id="MVV-Lf-JKP"/>
                         <outlet property="lbWindSpeed" destination="1wd-Gl-jHJ" id="BrH-i4-km8"/>
+                        <outlet property="loaderView" destination="nfm-eO-ap4" id="oYW-aX-UcP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
