@@ -10,6 +10,7 @@ import UIKit
 class CitySelectionViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    
     var weatherDelegate: WeatherViewDelegate?
     
     lazy var viewModel = {
@@ -29,7 +30,6 @@ class CitySelectionViewController: UIViewController {
         tableView.separatorColor = .lightGray
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView()
-        tableView.allowsSelection = false
         
         tableView.register(CitySelectionCell.nib, forCellReuseIdentifier: CitySelectionCell.identifier)
     }
@@ -58,6 +58,7 @@ extension CitySelectionViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension CitySelectionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
