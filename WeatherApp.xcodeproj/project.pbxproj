@@ -99,6 +99,10 @@
 		F49F900027ABE1FA005BF483 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F49F903C27ABE325005BF483 /* Managers */,
+				F49F903B27ABE316005BF483 /* Extentions */,
+				F49F903A27ABE30D005BF483 /* Constants */,
+				F49F903927ABE304005BF483 /* Resources */,
 				F49F903527ABE28E005BF483 /* CitySelection */,
 				F49F903127ABE265005BF483 /* Home */,
 				F49F900127ABE1FA005BF483 /* AppDelegate.swift */,
@@ -189,6 +193,34 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		F49F903927ABE304005BF483 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F49F903A27ABE30D005BF483 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F49F903B27ABE316005BF483 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
+		F49F903C27ABE325005BF483 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
