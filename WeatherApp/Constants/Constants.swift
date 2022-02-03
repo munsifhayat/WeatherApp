@@ -12,6 +12,8 @@ struct Constants {
     // MARK: - URL's
     
     static let BaseURL           = "https://www.metaweather.com/api/"
+    static let imageBaseURL      = "https://www.metaweather.com/static/img/weather/png/"
+
 
     // MARK:- Storyboard Identifiers
     static let mainStoryboard   = UIStoryboard(name: "Main", bundle: nil)

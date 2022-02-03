@@ -17,5 +17,6 @@ struct WeatherDetailsViewModel {
     var wind_speed: Double
     var air_pressure : Double
     var humidity : Int
+    var applicable_date : String
 
 }

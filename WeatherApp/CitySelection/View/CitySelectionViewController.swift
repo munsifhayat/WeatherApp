@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol CitySelectionDelegate : AnyObject {
+    
+    func selectedCity(_ city: CityCellViewModel)
+}
+
 class CitySelectionViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
-    var weatherDelegate: WeatherViewDelegate?
+    
+//    var weatherDelegate: WeatherViewDelegate?
+    
+    weak var delegate: CitySelectionDelegate?
+
     
     lazy var viewModel = {
         CitiesViewModel()
@@ -18,6 +27,9 @@ class CitySelectionViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Select City"
+        
         initView()
         initViewModel()
     }
@@ -29,7 +41,6 @@ class CitySelectionViewController: UIViewController {
         tableView.separatorColor = .lightGray
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView()
-        tableView.allowsSelection = false
         
         tableView.register(CitySelectionCell.nib, forCellReuseIdentifier: CitySelectionCell.identifier)
     }
@@ -43,9 +54,9 @@ class CitySelectionViewController: UIViewController {
         }
     }
     
-    func presetData(delegate: WeatherViewDelegate){
-        self.weatherDelegate = delegate
-    }
+//    func presetData(delegate: WeatherViewDelegate){
+//        self.weatherDelegate = delegate
+//    }
     
 }
 
@@ -58,6 +69,7 @@ extension CitySelectionViewController: UITableViewDelegate {
 }
 
 // MARK: - UITableViewDataSource
+
 extension CitySelectionViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -74,9 +86,8 @@ extension CitySelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
-        print(cellVM.woeid)
-        print(cellVM.cityName)
-        self.weatherDelegate?.cityChanged(city: cellVM)
+//        self.weatherDelegate?.cityChanged(city: cellVM)
+        self.delegate?.selectedCity(cellVM)
         self.navigationController?.popViewController(animated: true)
     }
 }

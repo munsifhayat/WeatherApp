@@ -60,9 +60,10 @@ class WeatherViewModel: NSObject {
         let wind_speed = weatherDetails.wind_speed ?? 0.0
         let air_pressure = weatherDetails.air_pressure ?? 0.0
         let humidity = weatherDetails.humidity ?? 0
+        let applicableDate = weatherDetails.applicable_date ?? "--"
         
         
-        return WeatherDetailsViewModel(weather_state_name: weather_state_name, weather_state_abbr: weather_state_abbr, the_temp: the_temp, max_temp: max_temp, min_temp: min_temp, wind_speed: wind_speed, air_pressure: air_pressure, humidity: humidity)
+        return WeatherDetailsViewModel(weather_state_name: weather_state_name, weather_state_abbr: weather_state_abbr, the_temp: the_temp, max_temp: max_temp, min_temp: min_temp, wind_speed: wind_speed, air_pressure: air_pressure, humidity: humidity , applicable_date: applicableDate)
     }
     
 }
