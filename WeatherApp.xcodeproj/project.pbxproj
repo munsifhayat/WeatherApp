@@ -262,6 +262,7 @@
 		F49F903A27ABE30D005BF483 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F4F7D1EA27AD64F6000B311B /* Resources */,
 				F49F904E27ABED4C005BF483 /* Constants.swift */,
 			);
 			path = Constants;
@@ -408,6 +409,7 @@
 			files = (
 				F49F900E27ABE1FB005BF483 /* LaunchScreen.storyboard in Resources */,
 				F49F905C27ABF118005BF483 /* CitySelectionCell.xib in Resources */,
+				F4F7D1EB27AD64F6000B311B /* Resources in Resources */,
 				F49F900B27ABE1FB005BF483 /* Assets.xcassets in Resources */,
 				F49F900927ABE1FA005BF483 /* Main.storyboard in Resources */,
 				F4F7D1F627AD675F000B311B /* CitiesList.json in Resources */,

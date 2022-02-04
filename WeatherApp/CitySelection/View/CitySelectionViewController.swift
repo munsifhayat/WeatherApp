@@ -54,10 +54,6 @@ class CitySelectionViewController: UIViewController {
         }
     }
     
-//    func presetData(delegate: WeatherViewDelegate){
-//        self.weatherDelegate = delegate
-//    }
-    
 }
 
 // MARK: - UITableViewDelegate
@@ -86,7 +82,6 @@ extension CitySelectionViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let cellVM = viewModel.getCellViewModel(at: indexPath)
-//        self.weatherDelegate?.cityChanged(city: cellVM)
         self.delegate?.selectedCity(cellVM)
         self.navigationController?.popViewController(animated: true)
     }
