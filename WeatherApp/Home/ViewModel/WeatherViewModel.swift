@@ -31,6 +31,7 @@ class WeatherViewModel: NSObject {
                 }
             case .failure(let error):
                 debugPrint("We got a failure trying to get the users. The error we got was: \(error.localizedDescription)")
+                self.outputDelegate?.apiError(error: error)
             }
         }
     }
@@ -70,4 +71,5 @@ class WeatherViewModel: NSObject {
 
 protocol WeatherViewModelDelegate {
     func loadData(weather: WeatherDetailsViewModel)
+    func apiError(error: Error)
 }

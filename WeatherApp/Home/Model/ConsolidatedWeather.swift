@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ConsolidatedWeather : Codable {
+public struct ConsolidatedWeather : Codable {
    let id : Int?
    let weather_state_name : String?
    let weather_state_abbr : String?
@@ -43,7 +43,7 @@ struct ConsolidatedWeather : Codable {
        case predictability = "predictability"
    }
 
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
        let values = try decoder.container(keyedBy: CodingKeys.self)
        id = try values.decodeIfPresent(Int.self, forKey: .id)
        weather_state_name = try values.decodeIfPresent(String.self, forKey: .weather_state_name)

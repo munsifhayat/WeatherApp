@@ -99,6 +99,10 @@ extension WeatherViewController: CitySelectionDelegate {
 
 
 extension WeatherViewController: WeatherViewModelDelegate {
+    func apiError(error: Error) {
+        
+    }
+    
     
     func loadData(weather: WeatherDetailsViewModel) {
         updateUI(weather: weather)

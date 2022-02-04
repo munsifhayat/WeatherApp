@@ -10,6 +10,7 @@ import Foundation
 class CitiesViewModel : NSObject {
     
     var reloadTableView: (() -> Void)?
+    var onError: ((_ error: Error)->Void)? = nil
     
     var cities = [Citylist]()
     
@@ -51,6 +52,7 @@ class CitiesViewModel : NSObject {
             }
         } catch {
             print("error: \(error)")
+            self.onError?(error)
         }
         return nil
         
@@ -62,6 +64,7 @@ class CitiesViewModel : NSObject {
             return decodedData
         } catch {
             print("error: \(error)")
+            self.onError?(error)
         }
         return nil
     }

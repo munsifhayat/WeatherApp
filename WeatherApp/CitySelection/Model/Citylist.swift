@@ -15,8 +15,18 @@ struct Citylist : Codable {
         case woeid
         case cityName = "city"
     }
+    
 }
 
 struct cityRecords : Codable {
     let cities: [Citylist]
+    
+    static func getMockJson() -> cityRecords {
+        return cityRecords(cities: [
+            Citylist(woeid: "1", cityName: "Mock1"),
+            Citylist(woeid: "2", cityName: "Mock2"),
+            Citylist(woeid: "3", cityName: "Mock3"),
+            
+        ])
+    }
 }
