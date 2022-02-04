@@ -18,15 +18,11 @@ class WeatherViewController: UIViewController {
     @IBOutlet var lbMixMaxTemp: UILabel!
     @IBOutlet var lbWeatherCondition: UILabel!
     @IBOutlet var lbWeatherForecastDate: UILabel!
-    
     @IBOutlet var lbAirPressure: UILabel!
     @IBOutlet var lbHumidity: UILabel!
     @IBOutlet var lbWindSpeed: UILabel!
-    
+    /// Indicator View
     @IBOutlet var loaderView: UIActivityIndicatorView!
-
-    
-    
     /// Image View
     @IBOutlet var imWeatherCondition: UIImageView!
     
@@ -43,7 +39,6 @@ class WeatherViewController: UIViewController {
         super.viewDidLoad()
         
         lbCityName.text = "London"
-        
         initViewModel()
     }
     
@@ -95,7 +90,6 @@ extension WeatherViewController: CitySelectionDelegate {
         self.viewModel.getWeather(woid: city.woeid)
     }
 }
-
 
 
 extension WeatherViewController: WeatherViewModelDelegate {
