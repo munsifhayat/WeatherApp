@@ -34,7 +34,6 @@
 		F49F906827AC25A0005BF483 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906727AC25A0005BF483 /* DateFormatter.swift */; };
 		F49F906A27AC2917005BF483 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906927AC2917005BF483 /* UIImageView.swift */; };
 		F4F7D1EB27AD64F6000B311B /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = F4F7D1EA27AD64F6000B311B /* Resources */; };
-		F4F7D1F227AD6687000B311B /* CitiesList.json in Resources */ = {isa = PBXBuildFile; fileRef = F4F7D1F127AD6687000B311B /* CitiesList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +85,6 @@
 		F49F906727AC25A0005BF483 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F49F906927AC2917005BF483 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		F4F7D1EA27AD64F6000B311B /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
-		F4F7D1F127AD6687000B311B /* CitiesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CitiesList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,7 +135,6 @@
 		F49F900027ABE1FA005BF483 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
-				F4F7D1EE27AD6535000B311B /* Resources */,
 				F49F903C27ABE325005BF483 /* Managers */,
 				F49F903B27ABE316005BF483 /* Extentions */,
 				F49F903A27ABE30D005BF483 /* Constants */,
@@ -280,14 +277,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		F4F7D1EE27AD6535000B311B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F4F7D1F127AD6687000B311B /* CitiesList.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,7 +381,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F4F7D1F227AD6687000B311B /* CitiesList.json in Resources */,
 				F49F900E27ABE1FB005BF483 /* LaunchScreen.storyboard in Resources */,
 				F49F905C27ABF118005BF483 /* CitySelectionCell.xib in Resources */,
 				F4F7D1EB27AD64F6000B311B /* Resources in Resources */,
