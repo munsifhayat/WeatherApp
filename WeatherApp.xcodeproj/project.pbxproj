@@ -32,7 +32,6 @@
 		F49F905C27ABF118005BF483 /* CitySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49F905A27ABF118005BF483 /* CitySelectionCell.xib */; };
 		F49F905E27ABF781005BF483 /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F905D27ABF781005BF483 /* UIView+Extention.swift */; };
 		F49F906027AC0384005BF483 /* CitiesList.json in Resources */ = {isa = PBXBuildFile; fileRef = F49F905F27AC0384005BF483 /* CitiesList.json */; };
-		F49F906627AC2235005BF483 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906527AC2235005BF483 /* Double.swift */; };
 		F49F906827AC25A0005BF483 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906727AC25A0005BF483 /* DateFormatter.swift */; };
 		F49F906A27AC2917005BF483 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906927AC2917005BF483 /* UIImageView.swift */; };
 /* End PBXBuildFile section */
@@ -84,7 +83,6 @@
 		F49F905A27ABF118005BF483 /* CitySelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySelectionCell.xib; sourceTree = "<group>"; };
 		F49F905D27ABF781005BF483 /* UIView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
 		F49F905F27AC0384005BF483 /* CitiesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CitiesList.json; sourceTree = "<group>"; };
-		F49F906527AC2235005BF483 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		F49F906727AC25A0005BF483 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F49F906927AC2917005BF483 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -264,7 +262,6 @@
 			isa = PBXGroup;
 			children = (
 				F49F905D27ABF781005BF483 /* UIView+Extention.swift */,
-				F49F906527AC2235005BF483 /* Double.swift */,
 				F49F906727AC25A0005BF483 /* DateFormatter.swift */,
 				F49F906927AC2917005BF483 /* UIImageView.swift */,
 			);
@@ -439,7 +436,6 @@
 				F49F905727ABEE82005BF483 /* Citylist.swift in Sources */,
 				F49F906A27AC2917005BF483 /* UIImageView.swift in Sources */,
 				F49F905127ABEDF5005BF483 /* CitySelectionViewController.swift in Sources */,
-				F49F906627AC2235005BF483 /* Double.swift in Sources */,
 				F49F904B27ABEB5C005BF483 /* Parent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
