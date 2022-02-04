@@ -31,9 +31,10 @@
 		F49F905B27ABF118005BF483 /* CitySelectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F905927ABF118005BF483 /* CitySelectionCell.swift */; };
 		F49F905C27ABF118005BF483 /* CitySelectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F49F905A27ABF118005BF483 /* CitySelectionCell.xib */; };
 		F49F905E27ABF781005BF483 /* UIView+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F905D27ABF781005BF483 /* UIView+Extention.swift */; };
-		F49F906027AC0384005BF483 /* CitiesList.json in Resources */ = {isa = PBXBuildFile; fileRef = F49F905F27AC0384005BF483 /* CitiesList.json */; };
 		F49F906827AC25A0005BF483 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906727AC25A0005BF483 /* DateFormatter.swift */; };
 		F49F906A27AC2917005BF483 /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F49F906927AC2917005BF483 /* UIImageView.swift */; };
+		F4F7D1EB27AD64F6000B311B /* Resources in Resources */ = {isa = PBXBuildFile; fileRef = F4F7D1EA27AD64F6000B311B /* Resources */; };
+		F4F7D1F027AD6549000B311B /* CitiesList.json in Resources */ = {isa = PBXBuildFile; fileRef = F4F7D1EF27AD6549000B311B /* CitiesList.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,9 +83,10 @@
 		F49F905927ABF118005BF483 /* CitySelectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CitySelectionCell.swift; sourceTree = "<group>"; };
 		F49F905A27ABF118005BF483 /* CitySelectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CitySelectionCell.xib; sourceTree = "<group>"; };
 		F49F905D27ABF781005BF483 /* UIView+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extention.swift"; sourceTree = "<group>"; };
-		F49F905F27AC0384005BF483 /* CitiesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CitiesList.json; sourceTree = "<group>"; };
 		F49F906727AC25A0005BF483 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		F49F906927AC2917005BF483 /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		F4F7D1EA27AD64F6000B311B /* Resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Resources; sourceTree = "<group>"; };
+		F4F7D1EF27AD6549000B311B /* CitiesList.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = CitiesList.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,10 +137,10 @@
 		F49F900027ABE1FA005BF483 /* WeatherApp */ = {
 			isa = PBXGroup;
 			children = (
+				F4F7D1EE27AD6535000B311B /* Resources */,
 				F49F903C27ABE325005BF483 /* Managers */,
 				F49F903B27ABE316005BF483 /* Extentions */,
 				F49F903A27ABE30D005BF483 /* Constants */,
-				F49F903927ABE304005BF483 /* Resources */,
 				F49F903527ABE28E005BF483 /* CitySelection */,
 				F49F903127ABE265005BF483 /* Home */,
 				F49F900127ABE1FA005BF483 /* AppDelegate.swift */,
@@ -242,17 +244,10 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		F49F903927ABE304005BF483 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				F49F905F27AC0384005BF483 /* CitiesList.json */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		F49F903A27ABE30D005BF483 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
+				F4F7D1EA27AD64F6000B311B /* Resources */,
 				F49F904E27ABED4C005BF483 /* Constants.swift */,
 			);
 			path = Constants;
@@ -283,6 +278,14 @@
 				F49F905A27ABF118005BF483 /* CitySelectionCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		F4F7D1EE27AD6535000B311B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F4F7D1EF27AD6549000B311B /* CitiesList.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,11 +392,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F4F7D1F027AD6549000B311B /* CitiesList.json in Resources */,
 				F49F900E27ABE1FB005BF483 /* LaunchScreen.storyboard in Resources */,
 				F49F905C27ABF118005BF483 /* CitySelectionCell.xib in Resources */,
+				F4F7D1EB27AD64F6000B311B /* Resources in Resources */,
 				F49F900B27ABE1FB005BF483 /* Assets.xcassets in Resources */,
 				F49F900927ABE1FA005BF483 /* Main.storyboard in Resources */,
-				F49F906027AC0384005BF483 /* CitiesList.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
