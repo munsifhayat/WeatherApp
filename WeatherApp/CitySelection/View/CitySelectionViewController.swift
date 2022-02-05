@@ -12,29 +12,29 @@ protocol CitySelectionDelegate : AnyObject {
     func selectedCity(_ city: CityCellViewModel)
 }
 
-class CitySelectionViewController: UIViewController {
+final class CitySelectionViewController: UIViewController {
     
+    /// Outlets
     @IBOutlet var tableView: UITableView!
     
-//    var weatherDelegate: WeatherViewDelegate?
-    
+    /// Properties
     weak var delegate: CitySelectionDelegate?
-
     
     lazy var viewModel = {
         CitiesViewModel()
     }()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        self.title = "Select City"
+        self.title = Constants.citySelectionTitle
         
         initView()
         initViewModel()
     }
     
-    func initView() {
+    private func initView() {
         // TableView customization
         tableView.delegate = self
         tableView.dataSource = self
@@ -45,8 +45,8 @@ class CitySelectionViewController: UIViewController {
         tableView.register(CitySelectionCell.nib, forCellReuseIdentifier: CitySelectionCell.identifier)
     }
     
-    func initViewModel() {
-        viewModel.getEmployees()
+    private func initViewModel() {
+        viewModel.getCities()
         viewModel.reloadTableView = { [weak self] in
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
@@ -56,15 +56,13 @@ class CitySelectionViewController: UIViewController {
     
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UITableViewDelegate and DataSource
 
 extension CitySelectionViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 56
     }
 }
-
-// MARK: - UITableViewDataSource
 
 extension CitySelectionViewController: UITableViewDataSource {
     

@@ -167,15 +167,14 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKP-fe-dJC">
-                                <rect key="frame" x="254" y="82" width="140" height="36"/>
+                                <rect key="frame" x="288" y="82" width="106" height="36"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="CdY-1D-Hgb"/>
-                                    <constraint firstAttribute="width" constant="140" id="a9E-aR-uot"/>
                                 </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Change City"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Change City"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <real key="value" value="18"/>
@@ -203,6 +202,7 @@
                             <constraint firstItem="GOE-2l-vMZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="8yj-9y-4Vk"/>
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.189732" constant="-20" id="9dh-uy-cyI"/>
                             <constraint firstItem="Yfh-xR-NNg" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Bvt-BU-N5U"/>
+                            <constraint firstItem="fKP-fe-dJC" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" symbolic="YES" id="Bzs-pR-TEV"/>
                             <constraint firstItem="nfm-eO-ap4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CJx-Vw-dCM"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nr8-Xg-eEo" secondAttribute="trailing" constant="20" id="CPs-AT-uog"/>
                             <constraint firstItem="nr8-Xg-eEo" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.03125" id="FcY-9d-iRC"/>
@@ -219,6 +219,7 @@
                             <constraint firstItem="EK9-3g-7EN" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.104353" id="dtc-Dn-dky"/>
                             <constraint firstItem="nfm-eO-ap4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eng-7h-UWL"/>
                             <constraint firstItem="GOE-2l-vMZ" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.03125" id="k7h-SA-T1q"/>
+                            <constraint firstItem="fKP-fe-dJC" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.202899" constant="22" id="mnW-l3-9lp"/>
                             <constraint firstItem="Itw-bO-DhA" firstAttribute="top" secondItem="GD4-q8-4HC" secondAttribute="bottom" constant="16" id="nx4-ds-tis"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fKP-fe-dJC" secondAttribute="trailing" constant="20" id="nzh-n6-vhq"/>
                             <constraint firstItem="nr8-Xg-eEo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="qjg-Nl-D9Q"/>

@@ -7,16 +7,6 @@
 
 import Foundation
 
-extension String {
-    
-    func toDate(formatType : String)-> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = formatType
-        let  dateFromStr = dateFormatter.date(from: self)
-        return dateFromStr
-    }
-}
-
 extension Date {
     
     func toString(formatType : String)-> String {

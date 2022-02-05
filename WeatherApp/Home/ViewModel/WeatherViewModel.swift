@@ -7,7 +7,12 @@
 
 import Foundation
 
-class WeatherViewModel: NSObject {
+protocol WeatherViewModelDelegate {
+    func loadData(weather: WeatherDetailsViewModel)
+    func apiError(error: Error)
+}
+
+final class WeatherViewModel: NSObject {
     
     var weather = [ConsolidatedWeather]()
     var outputDelegate: WeatherViewModelDelegate?
@@ -16,8 +21,7 @@ class WeatherViewModel: NSObject {
         self.outputDelegate = delegate
     }
     
-    func getWeather( woid : String) {
-        print("woid" , woid)
+     func getWeather( woid : String) {
         let networkManager = NetworkManager()
         let endpoint = "location/\(woid)"
         guard let url = URL(string: Constants.BaseURL + endpoint) else { fatalError("Invalid URL") }
@@ -26,7 +30,7 @@ class WeatherViewModel: NSObject {
         networkManager.request(fromURL: url) { (result: Result<Weather, Error>) in
             switch result {
             case .success(let weatherData):
-                if let weatherDetails = weatherData.consolidated_weather {
+                if let weatherDetails = weatherData.consolidatedWeather {
                     self.fetchData(weather: weatherDetails)
                 }
             case .failure(let error):
@@ -44,32 +48,28 @@ class WeatherViewModel: NSObject {
         return nil
     }
     
-    func fetchData(weather: [ConsolidatedWeather]) {
+    private func fetchData(weather: [ConsolidatedWeather]) {
         self.weather = weather // Cache
         if let weatherObj = self.tommorrowWeather {
             self.outputDelegate?.loadData(weather: weatherObj)
         }
     }
     
-    func createWeatherModel(weatherDetails: ConsolidatedWeather) -> WeatherDetailsViewModel {
+    private func createWeatherModel(weatherDetails: ConsolidatedWeather) -> WeatherDetailsViewModel {
         
-        let weather_state_name = weatherDetails.weather_state_name ?? ""
-        let weather_state_abbr = weatherDetails.weather_state_abbr ?? ""
-        let the_temp = weatherDetails.the_temp ?? 0.0
-        let max_temp = weatherDetails.max_temp ?? 0.0
-        let min_temp = weatherDetails.min_temp ?? 0.0
-        let wind_speed = weatherDetails.wind_speed ?? 0.0
-        let air_pressure = weatherDetails.air_pressure ?? 0.0
+        let weatherStateName = weatherDetails.weatherStateName ?? ""
+        let weatherStateAbbr = weatherDetails.weatherStateAbbr ?? ""
+        let theTemp = weatherDetails.theTemp ?? 0.0
+        let maxTemp = weatherDetails.maxTemp ?? 0.0
+        let minTemp = weatherDetails.minTemp ?? 0.0
+        let windSpeed = weatherDetails.windSpeed ?? 0.0
+        let airPressure = weatherDetails.airPressure ?? 0.0
         let humidity = weatherDetails.humidity ?? 0
-        let applicableDate = weatherDetails.applicable_date ?? "--"
+        let applicableDate = weatherDetails.applicableDate ?? "--"
         
         
-        return WeatherDetailsViewModel(weather_state_name: weather_state_name, weather_state_abbr: weather_state_abbr, the_temp: the_temp, max_temp: max_temp, min_temp: min_temp, wind_speed: wind_speed, air_pressure: air_pressure, humidity: humidity , applicable_date: applicableDate)
+        return WeatherDetailsViewModel(weatherStateName: weatherStateName, weatherStateAbbr: weatherStateAbbr, theTemp: theTemp, maxTemp: maxTemp, minTemp: minTemp, windSpeed: windSpeed, airPressure: airPressure, humidity: humidity , applicableDate: applicableDate)
     }
     
 }
 
-protocol WeatherViewModelDelegate {
-    func loadData(weather: WeatherDetailsViewModel)
-    func apiError(error: Error)
-}

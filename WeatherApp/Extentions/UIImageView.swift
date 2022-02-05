@@ -16,8 +16,6 @@ extension UIImageView {
                         self?.image = image
                     }
                 }
-            } else {
-                print("Nothing")
             }
         }
     }

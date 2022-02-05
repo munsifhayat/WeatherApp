@@ -8,7 +8,7 @@
 import UIKit
 import Foundation
 
-class RoundImageView: UIImageView{
+final class RoundImageView: UIImageView {
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -24,7 +24,7 @@ class RoundImageView: UIImageView{
     }
 }
 
-class RoundView: UIView{
+final class RoundView: UIView{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -41,7 +41,7 @@ class RoundView: UIView{
 }
 
 
-class RoundButton: UIButton{
+final class RoundButton: UIButton{
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -246,32 +246,32 @@ extension UIView {
  This is the class that handles all the drawing and animation.
  This class is not interacted with, instead
  properties are set in UICircularRing
-
+ 
  */
-class UICircularRingLayer: CAShapeLayer {
-
+final class UICircularRingLayer: CAShapeLayer {
+    
     // MARK: Properties
     @NSManaged var val: CGFloat
-
+    
     let ringWidth: CGFloat = 20
     let startAngle = CGFloat(-90)
-
+    
     // MARK: Init
-
+    
     override init() {
         super.init()
     }
-
+    
     override init(layer: Any) {
         guard let layer = layer as? UICircularRingLayer else { fatalError("unable to copy layer") }
-
+        
         super.init(layer: layer)
     }
-
+    
     required init?(coder aDecoder: NSCoder) { return nil }
-
+    
     // MARK: Draw
-
+    
     /**
      Override for custom drawing.
      Draws the ring
@@ -283,9 +283,9 @@ class UICircularRingLayer: CAShapeLayer {
         drawRing(in: ctx)
         UIGraphicsPopContext()
     }
-
+    
     // MARK: Animation methods
-
+    
     /**
      Watches for changes in the val property, and setNeedsDisplay accordingly
      */
@@ -296,7 +296,7 @@ class UICircularRingLayer: CAShapeLayer {
             return super.needsDisplay(forKey: key)
         }
     }
-
+    
     /**
      Creates animation when val property is changed
      */
@@ -311,16 +311,16 @@ class UICircularRingLayer: CAShapeLayer {
             return super.action(forKey: event)
         }
     }
-
-
+    
+    
     /**
      Draws the ring for the view.
      Sets path properties according to how the user has decided to customize the view.
      */
     private func drawRing(in ctx: CGContext) {
-
+        
         let center: CGPoint = CGPoint(x: bounds.midX, y: bounds.midY)
-
+        
         let radiusIn: CGFloat = (min(bounds.width, bounds.height) - ringWidth)/2
         // Start drawing
         let innerPath: UIBezierPath = UIBezierPath(arcCenter: center,
@@ -328,7 +328,7 @@ class UICircularRingLayer: CAShapeLayer {
                                                    startAngle: startAngle,
                                                    endAngle: toEndAngle,
                                                    clockwise: true)
-
+        
         // Draw path
         ctx.setLineWidth(ringWidth)
         ctx.setLineJoin(.round)
@@ -336,15 +336,15 @@ class UICircularRingLayer: CAShapeLayer {
         ctx.setStrokeColor(UIColor.red.cgColor)
         ctx.addPath(innerPath.cgPath)
         ctx.drawPath(using: .stroke)
-
+        
     }
-
-
+    
+    
     var toEndAngle: CGFloat {
         return (val * 360.0) + startAngle
     }
-
-
+    
+    
 }
 
 extension CGFloat {
@@ -352,21 +352,21 @@ extension CGFloat {
 }
 
 @IBDesignable open class UICircularRing: UIView {
-
+    
     /**
      Set the ring layer to the default layer, casted as custom layer
      */
     var ringLayer: UICircularRingLayer {
         return layer as! UICircularRingLayer
     }
-
+    
     /**
      Overrides the default layer with the custom UICircularRingLayer class
      */
     override open class var layerClass: AnyClass {
         return UICircularRingLayer.self
     }
-
+    
     /**
      Override public init to setup() the layer and view
      */
@@ -375,7 +375,7 @@ extension CGFloat {
         // Call the internal initializer
         setup()
     }
-
+    
     /**
      Override public init to setup() the layer and view
      */
@@ -384,7 +384,7 @@ extension CGFloat {
         // Call the internal initializer
         setup()
     }
-
+    
     /**
      This method initializes the custom CALayer to the default values
      */
@@ -394,13 +394,13 @@ extension CGFloat {
         ringLayer.shouldRasterize = true
         ringLayer.rasterizationScale = UIScreen.main.scale * 2
         ringLayer.masksToBounds = false
-
+        
         backgroundColor = UIColor.clear
         ringLayer.backgroundColor = UIColor.clear.cgColor
         ringLayer.val = 0
     }
-
-
+    
+    
     func startAnimation() {
         ringLayer.val = 1
     }

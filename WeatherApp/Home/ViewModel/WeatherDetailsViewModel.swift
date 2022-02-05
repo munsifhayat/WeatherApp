@@ -9,14 +9,14 @@ import Foundation
 
 struct WeatherDetailsViewModel {
     
-    var weather_state_name: String
-    var weather_state_abbr: String
-    var the_temp : Double
-    var max_temp : Double
-    var min_temp : Double
-    var wind_speed: Double
-    var air_pressure : Double
-    var humidity : Int
-    var applicable_date : String
+    let weatherStateName: String
+    let weatherStateAbbr: String
+    let theTemp : Double
+    let maxTemp : Double
+    let minTemp : Double
+    let windSpeed: Double
+    let airPressure : Double
+    let humidity : Int
+    let applicableDate : String
 
 }

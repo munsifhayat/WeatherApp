@@ -7,25 +7,23 @@
 
 import Foundation
 
-struct Citylist : Codable {
-    let woeid: String
-    let cityName : String
+struct CityList : Codable {
     
-    enum CodingKeys: String, CodingKey {
-        case woeid
-        case cityName = "city"
-    }
+    let woeid: String
+    let city : String
     
 }
 
 struct cityRecords : Codable {
-    let cities: [Citylist]
+    
+    let cities: [CityList]
     
     static func getMockJson() -> cityRecords {
+        
         return cityRecords(cities: [
-            Citylist(woeid: "1", cityName: "Mock1"),
-            Citylist(woeid: "2", cityName: "Mock2"),
-            Citylist(woeid: "3", cityName: "Mock3"),
+            CityList(woeid: "1", city: "Mock1"),
+            CityList(woeid: "2", city: "Mock2"),
+            CityList(woeid: "3", city: "Mock3"),
             
         ])
     }

@@ -9,24 +9,24 @@ import Foundation
 
 struct Parent : Codable {
     let title : String?
-    let location_type : String?
+    let locationType : String?
     let woeid : Int?
-    let latt_long : String?
+    let lattLong : String?
 
     enum CodingKeys: String, CodingKey {
 
         case title = "title"
-        case location_type = "location_type"
+        case locationType = "location_type"
         case woeid = "woeid"
-        case latt_long = "latt_long"
+        case lattLong = "latt_long"
     }
 
     init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         title = try values.decodeIfPresent(String.self, forKey: .title)
-        location_type = try values.decodeIfPresent(String.self, forKey: .location_type)
+        locationType = try values.decodeIfPresent(String.self, forKey: .locationType)
         woeid = try values.decodeIfPresent(Int.self, forKey: .woeid)
-        latt_long = try values.decodeIfPresent(String.self, forKey: .latt_long)
+        lattLong = try values.decodeIfPresent(String.self, forKey: .lattLong)
     }
 
 }

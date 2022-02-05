@@ -9,5 +9,5 @@ import Foundation
 
 struct CityCellViewModel {
     var woeid: String
-    var cityName: String
+    var city: String
 }

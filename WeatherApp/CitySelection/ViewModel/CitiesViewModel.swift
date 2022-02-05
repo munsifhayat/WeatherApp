@@ -7,21 +7,20 @@
 
 import Foundation
 
-class CitiesViewModel : NSObject {
+final class CitiesViewModel : NSObject {
     
     var reloadTableView: (() -> Void)?
     var onError: ((_ error: Error)->Void)? = nil
-    
-    var cities = [Citylist]()
-    
+    var cities = [CityList]()
+   
     var cityCellViewModels = [CityCellViewModel]() {
         didSet {
             reloadTableView?()
         }
     }
     
-    func fetchData(cities: [Citylist]) {
-        self.cities = cities // Cache
+    func fetchData(cities: [CityList]) {
+        self.cities = cities 
         var vms = [CityCellViewModel]()
         for city in cities {
             vms.append(createCellModel(cityDetails:city))
@@ -29,11 +28,11 @@ class CitiesViewModel : NSObject {
         cityCellViewModels = vms
     }
     
-    func createCellModel(cityDetails: Citylist) -> CityCellViewModel {
+    func createCellModel(cityDetails: CityList) -> CityCellViewModel {
         let woeid = cityDetails.woeid
-        let cityName = cityDetails.cityName
+        let cityName = cityDetails.city
         
-        return CityCellViewModel(woeid: woeid, cityName: cityName)
+        return CityCellViewModel(woeid: woeid, city: cityName )
     }
     
     func getCellViewModel(at indexPath: IndexPath) -> CityCellViewModel {
@@ -51,7 +50,6 @@ class CitiesViewModel : NSObject {
                 return data
             }
         } catch {
-            print("error: \(error)")
             self.onError?(error)
         }
         return nil
@@ -63,22 +61,18 @@ class CitiesViewModel : NSObject {
             let decodedData = try JSONDecoder().decode(cityRecords.self, from: jsonData)
             return decodedData
         } catch {
-            print("error: \(error)")
             self.onError?(error)
         }
         return nil
     }
     
     
-    func getEmployees() {
-        let jsonData = readLocalJSONFile(forName: "CitiesList")
+    func getCities() {
+        let jsonData = readLocalJSONFile(forName: Constants.citiesFileName)
         if let data = jsonData {
             if let cityDetailsData = parse(jsonData: data) {
-                //You can read sampleRecordObj just like below.
-                print(cityDetailsData)
                 self.fetchData(cities: cityDetailsData.cities)
             }
-            
         }
     }
 }

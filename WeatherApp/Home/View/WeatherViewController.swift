@@ -7,10 +7,9 @@
 
 import UIKit
 
-class WeatherViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     
     // MARK: - Outlets
-    
     /// Lables
     @IBOutlet var lbCityName: UILabel!
     @IBOutlet var lbWeatherDate: UILabel!
@@ -21,15 +20,15 @@ class WeatherViewController: UIViewController {
     @IBOutlet var lbAirPressure: UILabel!
     @IBOutlet var lbHumidity: UILabel!
     @IBOutlet var lbWindSpeed: UILabel!
+    
     /// Indicator View
     @IBOutlet var loaderView: UIActivityIndicatorView!
+    
     /// Image View
     @IBOutlet var imWeatherCondition: UIImageView!
     
     // Properties
-    var selectedCity : String = "London"
-    var defaultWOID : String = "44418"
-    
+    var defaultWOID : String = Constants.defaultWOID
     
     lazy var viewModel = {
         WeatherViewModel(delegate: self)
@@ -38,10 +37,9 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        lbCityName.text = "London"
+        lbCityName.text = Constants.defaultCityTitle
         initViewModel()
     }
-    
     
     
     func initViewModel() {
@@ -53,21 +51,20 @@ class WeatherViewController: UIViewController {
         
         loaderView.stopAnimating()
         
-        let tomorrowTemp = Int (weather.the_temp.rounded())
-        let tommorrowMin = Int (weather.min_temp.rounded())
-        let tommorrowMax = Int (weather.max_temp.rounded())
-
-        lbWeatherCondition.text = weather.weather_state_name
-        lbTemp.text = String(tomorrowTemp) +  "°C"
-        lbMixMaxTemp.text = String(tommorrowMin) + "°C" + " / " + String(tommorrowMax) + "°C"
-        lbWeatherForecastDate.text = weather.applicable_date.toDate(formatType: "YYYY-MM-dd")?.toString(formatType: "EEEE, MMM d, yyyy")
+        let tomorrowTemp = Int (weather.theTemp.rounded())
+        let tommorrowMin = Int (weather.minTemp.rounded())
+        let tommorrowMax = Int (weather.maxTemp.rounded())
         
+        lbWeatherCondition.text = weather.weatherStateName
+        lbTemp.text = String(tomorrowTemp) +  Constants.tempUnit
+        lbMixMaxTemp.text = String(tommorrowMin) + Constants.tempUnit + Constants.textSeperation + String(tommorrowMax) + Constants.tempUnit
+        lbWeatherForecastDate.text = weather.applicableDate.toDate(formatType: Constants.serverDateFormat)?.toString(formatType: Constants.dateFormat)
         
-        lbAirPressure.text = String(weather.air_pressure) + " psi"
-        lbHumidity.text = String(weather.humidity) + " %"
-        lbWindSpeed.text = String(weather.wind_speed.rounded()) + " mph"
+        lbAirPressure.text = String(weather.airPressure) + Constants.airPressureUnit
+        lbHumidity.text = String(weather.humidity) + Constants.humidityLevel
+        lbWindSpeed.text = String(weather.windSpeed.rounded()) + Constants.windSpeedUnit
         
-        if let weatherConditionIconURL = URL(string:Constants.imageBaseURL + weather.weather_state_abbr + ".png"){
+        if let weatherConditionIconURL = URL(string:Constants.imageBaseURL + weather.weatherStateAbbr + Constants.imageType){
             imWeatherCondition.load(url: weatherConditionIconURL)
         }
         
@@ -86,13 +83,14 @@ class WeatherViewController: UIViewController {
 extension WeatherViewController: CitySelectionDelegate {
     
     func selectedCity(_ city: CityCellViewModel) {
-        lbCityName.text = city.cityName
+        lbCityName.text = city.city
         self.viewModel.getWeather(woid: city.woeid)
     }
 }
 
 
 extension WeatherViewController: WeatherViewModelDelegate {
+    
     func apiError(error: Error) {
         
     }

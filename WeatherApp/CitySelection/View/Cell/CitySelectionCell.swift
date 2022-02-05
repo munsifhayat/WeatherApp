@@ -7,8 +7,9 @@
 
 import UIKit
 
-class CitySelectionCell: UITableViewCell {
+final class CitySelectionCell: UITableViewCell {
 
+    /// Outlets
     @IBOutlet var lbCityName: UILabel!
     
     class var identifier: String { return String(describing: self) }
@@ -16,7 +17,7 @@ class CitySelectionCell: UITableViewCell {
     
     var cellViewModel: CityCellViewModel? {
         didSet {
-            lbCityName.text = cellViewModel?.cityName
+            lbCityName.text = cellViewModel?.city
         }
     }
     

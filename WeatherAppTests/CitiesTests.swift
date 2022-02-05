@@ -51,7 +51,7 @@ class CitiesTests: XCTestCase {
         model.onError = {error in
             XCTFail(error.localizedDescription)
         }
-        model.getEmployees()
+        model.getCities()
         self.waitForExpectations(timeout: 5, handler: nil)
     }
     
@@ -60,14 +60,12 @@ class CitiesTests: XCTestCase {
         let mockObjects = cityRecords.getMockJson()
         let encodedData = try! JSONEncoder().encode(mockObjects)
         let parsedData = model.parse(jsonData: encodedData)
-        print("parsedData",parsedData)
         XCTAssertNotNil(parsedData)
     }
     
     func testParseCityModelFailure() throws {
         let model = CitiesViewModel()
         let parsedData = model.parse(jsonData: Data())
-        print("parsedData",parsedData)
         XCTAssertNil(parsedData)
     }
 }
